@@ -64,7 +64,7 @@ def start(message):
 def answered(query):
 	user = db.get_user(query.message.chat.id)
 
-	if user is None or user["is_passed"] or not user["is_passing"]:
+	if user["is_passed"] or not user["is_passing"]:
 		return
 
 	user["answers"].append(int(query.data.split("&")[1]))
